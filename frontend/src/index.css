@@ -1,0 +1,150 @@
+/* src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 330 84% 56%;
+    /* A rich pink, the core of your "silk" gradient */
+    --primary-foreground: 355.7 100% 97.3%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 45 93% 47%;
+    /* A vibrant gold for highlights */
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    background-image: linear-gradient(to top right, #fff1f2, #fdfbfb, #fef6e9);
+  }
+}
+
+/* Add these lines to src/index.css inside the @tailwind components; section */
+@layer components {
+  .form-input {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-shadow;
+  }
+
+  .sidebar-btn {
+    @apply w-full flex items-center justify-center gap-2 px-4 py-3 text-white font-semibold rounded-lg hover:-translate-y-0.5 transition-transform;
+  }
+
+  /* Salary Slip Layout Primitives */
+  .salary-slip-container {
+    @apply w-[210mm] min-h-[297mm] bg-white mx-auto shadow-2xl overflow-hidden pointer-events-none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .salary-slip-container * {
+    pointer-events: auto;
+  }
+
+  .no-pdf {
+    display: none !important;
+  }
+}
+
+/* Turn off number input spinners */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Print Styles */
+@media print {
+  @page {
+    margin: 5mm;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  .printable-area,
+  .printable-area * {
+    visibility: visible;
+  }
+
+  .printable-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Custom Scrollbar Styles */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+@keyframes bell-ring {
+  0%, 100% { transform: rotate(0deg); }
+  10%, 30%, 50%, 70%, 90% { transform: rotate(10deg); }
+  20%, 40%, 60%, 80% { transform: rotate(-10deg); }
+}
+
+.animate-bell-ring {
+  animation: bell-ring 2.5s ease-in-out infinite;
+  transform-origin: top center;
+}

@@ -1,0 +1,73 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Production and Build artifacts
+dist/
+**/dist/
+build/
+**/build/
+target/
+**/target/
+*.class
+
+# Environment and Secret credentials (CRITICAL - DO NOT COMMIT)
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+serviceAccountKey.json
+**/serviceAccountKey.json
+*serviceAccountKey*.json
+**/*serviceAccountKey*.json
+*.pem
+*.key
+*.jks
+KeyStore
+**/KeyStore
+KeyStore/
+**/KeyStore/
+*.keystore
+*.jks
+*.p12
+*.pfx
+
+# IDE and Editor configurations
+.idea/
+**/.idea/
+.vscode/
+**/.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Firebase cache
+.firebase/
+**/.firebase/
+firebase-debug.log*
+firestore-debug.log*
+
+# Logs and debugging
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*_log.txt
+*_output.txt
+deploy.txt
+lint_results*.txt
+
+# OS Generated
+.DS_Store
+Thumbs.db
+
+# Local JDK and Android artifacts
+**/jdk*/
+**/jdk*.zip
+*.zip
+coverage/

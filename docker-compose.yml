@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend/staff-service
+      dockerfile: Dockerfile
+    ports:
+      - "8084:8084"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      # Add Firebase credentials mapping if needed, e.g., GOOGLE_APPLICATION_CREDENTIALS=/app/firebase-key.json
+    restart: unless-stopped
